@@ -1,0 +1,16 @@
+{
+  "name": "radix64",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "mocha": "~1.11.0",
+    "chai": "~1.7.0"
+  }
+}
