@@ -1,15 +1,15 @@
 {
   "name": "radix64",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "radix64, library to convert Unsigned Interger into a base64 like String",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/*.js"
   },
-  "repository": "",
+  "repository": "http://github.com/maxired/radix64.git",
   "author": "",
   "license": "BSD",
-  "dependencies": {
+  "devDependencies": {
     "mocha": "~1.11.0",
     "chai": "~1.7.0"
   }

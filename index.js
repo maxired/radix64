@@ -9,9 +9,9 @@ var convertOne = function(number) {
 	} else if (tmp < 62) {
 		return String.fromCharCode(tmp - 52 + 48)
 	} else if (tmp == 62) {
-		return '+';
+		return '-';
 	} else {
-		return '/';
+		return '_';
 	}
 };
 

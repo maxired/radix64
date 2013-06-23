@@ -88,7 +88,7 @@ describe("Given A figure", function() {
 	describe("when I call radix", function() {
 		it("it return the figure", function() {
 			var num = 62;
-			assert.equal(radix64(num), '+');
+			assert.equal(radix64(num), '-');
 		})
 	});
 })
@@ -98,7 +98,7 @@ describe("Given A figure", function() {
 	describe("when I call radix", function() {
 		it("it return the figure", function() {
 			var num = 63;
-			assert.equal(radix64(num), '/');
+			assert.equal(radix64(num), '_');
 		})
 	});
 })
