@@ -80,4 +80,11 @@ describe("when calling ascii64", function() {
 			assert.ok(radix64.ascii64(65, 2) < radix64.ascii64(2, 1));
 		})
 	})
+
+	describe("with very big number", function() {
+		it("work", function() {
+			assert.equal(radix64.ascii64( 4* Math.pow(64,6)),'---3------');
+			assert.equal(radix64.ascii64( +new Date(2012,12)),'---IjnBLa-');
+		})
+	})
 });

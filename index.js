@@ -24,7 +24,7 @@ var radix64 = function(number, method) {
 	if (number < 64) {
 		return convertOne(number, method);
 	}
-	return '' + radix64( number>>6, method) + convertOne(number & 63, method);
+	return '' + radix64( Math.floor(number/64) , method) + convertOne(number & 63, method);
 
 }
 
