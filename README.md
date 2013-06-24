@@ -22,13 +22,16 @@ Several mapping option is available
 
 
 ###Usage with Options
+```javascript
 var radix64 = require('radix64') ;
 console.log(radix64.radix64( +new Date()) , radix64.methods.BASE64URL );
-
+```
 
 ##ASCII64
 The base64Ascii method allows to compare output from same length, but doesn't work for output of differents length.
 The Ascii64 methods aims to solve this problem, by adding padding to the output
 ###Sample
+```javascript
 var ascii64 = require('radix64').ascii64 ;
 assert.ok ( ascii(65) > ascii(63));
+```
