@@ -1,104 +1,166 @@
-var radix64 = require('../').radix64;
+var radix64 = require('../');
 var assert = require('chai').assert;
 
 
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
+
+var base64cases = [{
+		num: 0,
+		out: 'A'
+	}, {
+		num: 3,
+		out: 'D'
+	}, {
+		num: 25,
+		out: 'Z'
+	}, {
+		num: 26,
+		out: 'a'
+	}, {
+		num: 51,
+		out: 'z'
+	}, {
+		num: 52,
+		out: '0'
+	}, {
+		num: 61,
+		out: '9'
+	}, {
+		num: 61,
+		out: '9'
+	}, {
+		num: 62,
+		out: '+'
+	}, {
+		num: 63,
+		out: '/'
+	}
+];
+
+var urlcases = [{
+		num: 0,
+		out: 'A'
+	}, {
+		num: 3,
+		out: 'D'
+	}, {
+		num: 25,
+		out: 'Z'
+	}, {
+		num: 26,
+		out: 'a'
+	}, {
+		num: 51,
+		out: 'z'
+	}, {
+		num: 52,
+		out: '0'
+	}, {
+		num: 61,
+		out: '9'
+	}, {
+		num: 61,
+		out: '9'
+	}, {
+		num: 62,
+		out: '-'
+	}, {
+		num: 63,
+		out: '_'
+	}
+];
+
+
+var naturalCases = [{
+		num: 0,
+		out: '0'
+	}, {
+		num: 3,
+		out: '3'
+	}, {
+		num: 10,
+		out: 'A'
+	}, {
+		num: 15,
+		out: 'F'
+	}, {
+		num: 35,
+		out: 'Z'
+	}, {
+		num: 36,
+		out: 'a'
+	}, {
+		num: 61,
+		out: 'z'
+	}, {
+		num: 62,
+		out: '-'
+	}, {
+		num: 63,
+		out: '_'
+	}
+];
+
+
+
+var ASCIICases = [{
+		num: 0,
+		out: '-'
+	}, {
+		num: 1,
+		out: '0'
+	}, {
+		num: 11,
+		out: 'A'
+	}, {
+		num: 16,
+		out: 'F'
+	}, {
+		num: 36,
+		out: 'Z'
+	}, {
+		num: 37,
+		out: '_'
+	}, {
+		num: 38,
+		out: 'a'
+	}, {
+		num: 63,
+		out: 'z'
+	}
+];
+
+
+
+describe("Given  NO params figure", function() {
+
+	[undefined, radix64.methods.DEFAULT, radix64.methods.BASE64URL].forEach(function(param) {
+		urlcases.forEach(function(myCase) {
+
+			it("it return the figure", function() {
+				assert.equal(radix64.radix64(myCase.num, param), myCase.out);
+			})
+		});
+	})
+
+
+	base64cases.forEach(function(myCase) {
+
 		it("it return the figure", function() {
-			var num = 0;
-			assert.equal(radix64(num), 'A');
+			assert.equal(radix64.radix64(myCase.num, radix64.methods.BASE64), myCase.out);
 		})
 	});
-})
 
+	naturalCases.forEach(function(myCase) {
 
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
 		it("it return the figure", function() {
-			var num = 3;
-			assert.equal(radix64(num), 'D');
+			assert.equal(radix64.radix64(myCase.num, radix64.methods.BASE64NATURAL), myCase.out);
 		})
 	});
-})
 
+	ASCIICases.forEach(function(myCase) {
 
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
 		it("it return the figure", function() {
-			var num = 25;
-			assert.equal(radix64(num), 'Z');
-		})
-	});
-})
-
-
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
-		it("it return the figure", function() {
-			var num = 26;
-			assert.equal(radix64(num), 'a');
-		})
-	});
-})
-
-
-
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
-		it("it return the figure", function() {
-			var num = 51;
-			assert.equal(radix64(num), 'z');
-		})
-	});
-})
-
-
-
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
-		it("it return the figure", function() {
-			var num = 52;
-			assert.equal(radix64(num), '0');
-		})
-	});
-})
-
-
-
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
-		it("it return the figure", function() {
-			var num = 57;
-			assert.equal(radix64(num), '5');
-		})
-	});
-})
-
-
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
-		it("it return the figure", function() {
-			var num = 61;
-			assert.equal(radix64(num), '9');
-		})
-	});
-})
-
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
-		it("it return the figure", function() {
-			var num = 62;
-			assert.equal(radix64(num), '-');
-		})
-	});
-})
-
-
-describe("Given A figure", function() {
-	describe("when I call radix", function() {
-		it("it return the figure", function() {
-			var num = 63;
-			assert.equal(radix64(num), '_');
+			assert.equal(radix64.radix64(myCase.num, radix64.methods.BASE64ASCII), myCase.out);
 		})
 	});
 })

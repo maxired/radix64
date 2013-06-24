@@ -1,6 +1,6 @@
 {
   "name": "radix64",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "radix64, library to convert Unsigned Interger into a base64 like String",
   "main": "index.js",
   "scripts": {
