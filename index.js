@@ -46,5 +46,9 @@ var ascii64 = function(number, pad) {
 module.exports = {
 	radix64: radix64,
 	methods: methodsEnum,
-	ascii64: ascii64
+	ascii64: ascii64,
+	base64 : function(n){ return radix64(n , methodsEnum.BASE64)},
+	base64URL : function(n){ return radix64(n , methodsEnum.BASE64URL)},
+	base64Natural : function(n){ return radix64(n , methodsEnum.BASE64NATURAL)},
+	base64ASCII : function(n){ return radix64(n , methodsEnum.BASE64ASCII)},
 }

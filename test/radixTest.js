@@ -131,36 +131,48 @@ var ASCIICases = [{
 
 
 
-describe("Given  NO params figure", function() {
+describe("calling radix with BASE64URL", function() {
 
-	[undefined, radix64.methods.DEFAULT, radix64.methods.BASE64URL].forEach(function(param) {
-		urlcases.forEach(function(myCase) {
-
+	urlcases.forEach(function(myCase) {
+		[undefined, radix64.methods.DEFAULT, radix64.methods.BASE64URL].forEach(function(param) {
 			it("it return the figure", function() {
 				assert.equal(radix64.radix64(myCase.num, param), myCase.out);
 			})
 		});
+
+		it("it return the figure", function() {
+			assert.equal(radix64.base64URL(myCase.num), myCase.out);
+		})
 	})
 
+})
 
+describe("calling radix with BASE64", function() {
 	base64cases.forEach(function(myCase) {
 
 		it("it return the figure", function() {
 			assert.equal(radix64.radix64(myCase.num, radix64.methods.BASE64), myCase.out);
+			assert.equal(radix64.base64(myCase.num), myCase.out);
 		})
 	});
+});
 
+describe("calling radix with BASE64Natural", function() {
 	naturalCases.forEach(function(myCase) {
 
 		it("it return the figure", function() {
 			assert.equal(radix64.radix64(myCase.num, radix64.methods.BASE64NATURAL), myCase.out);
+			assert.equal(radix64.base64Natural(myCase.num), myCase.out);
 		})
 	});
+});
 
+describe("calling radix with BASE64ASCII", function() {
 	ASCIICases.forEach(function(myCase) {
 
 		it("it return the figure", function() {
 			assert.equal(radix64.radix64(myCase.num, radix64.methods.BASE64ASCII), myCase.out);
+			assert.equal(radix64.base64ASCII(myCase.num), myCase.out);
 		})
 	});
 })
